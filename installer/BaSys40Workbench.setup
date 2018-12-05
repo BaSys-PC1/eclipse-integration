@@ -175,7 +175,7 @@
             url="http://download.eclipse.org/cbi/updates/license"/>
       </repositoryList>
       <dropinLocation
-          rootFolder="${workspace.location}/deployment/de.dfki.iui.basys.targetplatform/plugins"/>
+          rootFolder="${workspace.location}/eclipse-integration/targetplatform/plugins"/>
     </targlet>
   </setupTask>
   <stream name="develop"
@@ -219,13 +219,6 @@
             xsi:type="predicates:NamePredicate"
             pattern=".*\.basys.demonstrator.*"/>
       </workingSet>
-      <workingSet
-          name="BaSys Deployment"
-          id="">
-        <predicate
-            xsi:type="predicates:RepositoryPredicate"
-            project="de.dfki.iui.basys.updatesite"/>
-      </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
     <setupTask
@@ -248,14 +241,14 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/deployment"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/deployment.git"/>
-    <setupTask
-        xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
         remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
       <description></description>
     </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/eclipse-integration"
+        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/eclipse-integration.git"/>
     <setupTask
         xsi:type="maven:MavenImportTask"
         id="pom"
@@ -289,7 +282,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${workspace.location}"/>
+          rootFolder="${workspace.location}/eclipse-integration"/>
     </setupTask>
   </stream>
   <stream name="master"
@@ -333,13 +326,6 @@
             xsi:type="predicates:NamePredicate"
             pattern=".*\.basys.demonstrator.*"/>
       </workingSet>
-      <workingSet
-          name="BaSys Deployment"
-          id="">
-        <predicate
-            xsi:type="predicates:RepositoryPredicate"
-            project="de.dfki.iui.basys.updatesite"/>
-      </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
     <setupTask
@@ -362,14 +348,14 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/deployment"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/deployment.git"/>
-    <setupTask
-        xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
         remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
       <description></description>
     </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/eclipse-integration"
+        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/eclipse-integration.git"/>
     <setupTask
         xsi:type="maven:MavenImportTask"
         projectNameTemplate="">
