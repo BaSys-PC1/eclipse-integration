@@ -1,0 +1,1 @@
+Put bundles in this folder if they are not publicly available via a p2 repository.
