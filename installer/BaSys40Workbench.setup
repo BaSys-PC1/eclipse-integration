@@ -95,12 +95,6 @@
         xsi:type="setup.workingsets:WorkingSetTask"
         prefix="org.eclipse.core.git-">
       <workingSet
-          name="BaSys Pom">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.pom.*"/>
-      </workingSet>
-      <workingSet
           name="BaSys Common">
         <predicate
             xsi:type="predicates:NamePredicate"
@@ -171,42 +165,28 @@
         id="pom"
         projectNameTemplate="">
       <sourceLocator
-          rootFolder="${workspace.location}/pom"
-          locateNestedProjects="false">
-      </sourceLocator>
+          rootFolder="${workspace.location}/pom"/>
       <sourceLocator
-          rootFolder="${workspace.location}/common"
-          locateNestedProjects="true">
-        <excludedPath>./poms/</excludedPath>
-        <excludedPath>./poms/compiled/</excludedPath>
-        <excludedPath>./poms/wrappers/</excludedPath>
-        <excludedPath>./provision/</excludedPath>
-        <excludedPath>./karaf/</excludedPath>
-      </sourceLocator>
+          rootFolder="${workspace.location}/common/modules"
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/runtime"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/osgi"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/configs"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/platform"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/devices"
-          locateNestedProjects="true">
-      </sourceLocator>
+          locateNestedProjects="true"/>
       <description></description>
     </setupTask>
     <setupTask
