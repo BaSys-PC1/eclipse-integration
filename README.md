@@ -1,6 +1,6 @@
 # Install the BaSys 4.0 workbench including the BaSys 4.0 source code via Eclipse Installer
 
- 1. Download the [Eclipse Installer] (https://wiki.eclipse.org/Eclipse_Installer)
+ 1. Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer)
  2. Execute the downloaded package, click on the menu button the the top right corner, and switch to the advanced mode. This requires the Eclipse Installer to get installed on the hard disk.
     
     <img src='/readme/installer/eclipse-installer-1.png?raw=true' width='50%' height='50%'>
