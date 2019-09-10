@@ -156,6 +156,13 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
+        location="${workspace.location}/cluster40"
+        remoteURI="https://github.com/BaSys-PC1/cluster40.git"
+        checkoutBranch="master">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
         location="${workspace.location}/eclipse-integration"
         remoteURI="https://github.com/BaSys-PC1/eclipse-integration.git"
         checkoutBranch="master"/>
@@ -342,6 +349,12 @@
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
         remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/cluster40"
+        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/cluster40.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -537,6 +550,12 @@
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
         remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/cluster40"
+        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/cluster40.git">
       <description></description>
     </setupTask>
     <setupTask
