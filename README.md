@@ -5,7 +5,7 @@
     
     <img src='/docs/installer/eclipse-installer-1.png?raw=true' width='50%' height='50%'>
  
- 3. Select 'Eclipse Modeling Tools' and click 'next'.
+ 3. Select 'Eclipse IDE for Java Developers' (please note that the screenshot is outdated) and click 'next'.
 
     <img src='/docs/installer/eclipse-installer-2.png?raw=true' width='50%' height='50%'>
  
