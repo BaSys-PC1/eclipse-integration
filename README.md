@@ -30,3 +30,10 @@
  8. Click 'Finish' to start the installation. This will install a new Eclipse IDE, pull the BaSys 4.0 source code from GitHub, and import the contained projects into the Eclipse workspace.
 
     <img src='/docs/installer/eclipse-installer-7.png?raw=true' width='50%' height='50%'>
+    
+# Post-installation steps
+
+ 1. Navigate to the newly created workspace folder ('Root install folder'/'Installation folder name'/ws) in a console window.
+ 2. Navigate to the sub folders `pom`, `common`, `controlcomponent`, and `platform` and run a `mvn clean install -DskipTests`.
+ 3. Optionally, navigate to the sub folders `demonstrator` and/or `cluster40` and run the same maven command.
+ 4. In Eclipse, select all projects (`[Ctrl]+[A]`) and perform a Maven Update Project (`[ALT]+[F5]`).
