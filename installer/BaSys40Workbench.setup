@@ -36,6 +36,14 @@
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="STARTUP MANUAL"
+      content="MAX_RECENT_WORKSPACES=5&#xD;&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xD;&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xD;&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=false&#xD;&#xA;eclipse.preferences.version=1"
+      targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
+      encoding="UTF-8">
+    <description>Do not ask for workspace location</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:ResourceCreationTask"
+      excludedTriggers="STARTUP MANUAL"
       content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart&quot;>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;group_libraries&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;false&quot; key=&quot;linkWithEditor&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;layout&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;rootMode&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;packageExplorer configured=&amp;quot;true&amp;quot; group_libraries=&amp;quot;1&amp;quot; layout=&amp;quot;2&amp;quot; linkWithEditor=&amp;quot;0&amp;quot; rootMode=&amp;quot;2&amp;quot; sortWorkingSets=&amp;quot;false&amp;quot; workingSetName=&amp;quot;&amp;quot;&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;workingSet editPageId=&amp;quot;org.eclipse.jdt.internal.ui.OthersWorkingSet&amp;quot; factoryID=&amp;quot;org.eclipse.ui.internal.WorkingSetFactory&amp;quot; id=&amp;quot;1382792884467_1&amp;quot; label=&amp;quot;Other Projects&amp;quot; name=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;activeWorkingSet workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;allWorkingSets workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/packageExplorer&amp;gt;&quot; key=&quot;memento&quot;/>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>&#xD;&#xA;"
       targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml"
       encoding="UTF-8">
@@ -45,7 +53,7 @@
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
       value=""
-      defaultValue="Oxygen"
+      defaultValue="2019-09"
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup:PreferenceTask"
@@ -67,65 +75,80 @@
         name="org.eclipse.bpmn2.feature.feature.group"
         versionRange="1.2.0.Final"/>
     <requirement
-        name="org.eclipse.sirius.specifier.feature.group"
-        versionRange="5.1.1"/>
-    <requirement
         name="name.schedenig.eclipse.grepconsole.feature.group"/>
     <requirement
+        name="org.eclipse.emf.feature.group"
+        versionRange="2.19.0"/>
+    <requirement
+        name="org.eclipse.emf.ecoretools.design.feature.group"
+        versionRange="3.3.2"/>
+    <requirement
         name="org.eclipse.acceleo.sdk.feature.group"
-        versionRange="3.7.2"/>
+        versionRange="3.7.0"/>
     <requirement
         name="org.eclipse.m2m.qvt.oml.sdk.feature.group"
-        versionRange="3.7.0"/>
+        versionRange="3.10.0"/>
     <repository
         url="http://javatime.no/updates"/>
     <repository
-        url="http://download.eclipse.org/releases/oxygen"/>
-    <repository
-        url="http://download.eclipse.org/sirius/updates/releases/5.1.1/oxygen/"/>
-    <repository
         url="http://eclipse.schedenig.name/"/>
     <repository
+        url="https://download.eclipse.org/releases/2019-09"/>
+    <repository
+        url="https://download.eclipse.org/ecoretools/updates/releases/3.3.2/"/>
+    <repository
         url="http://download.eclipse.org/acceleo/updates/releases/"/>
+    <repository
+        url="https://download.eclipse.org/mmt/qvto/updates/releases/latest/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.workingsets:WorkingSetTask">
+    <workingSet
+        name="BaSys Common">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.common.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys ControlComponent">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.controlcomponent.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys Models">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.platform.model.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys Runtime">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.platform.runtime.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys OSGi">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.platform.osgi.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys WebApp">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.platform.webapp.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys Demonstrator">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.demonstrator.*"/>
+    </workingSet>
   </setupTask>
   <stream name="github"
       label="Github">
-    <setupTask
-        xsi:type="setup.workingsets:WorkingSetTask"
-        prefix="org.eclipse.core.git-">
-      <workingSet
-          name="BaSys Common">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.common.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Models">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.model.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Runtime">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.runtime.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys OSGi">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.osgi.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Demonstrator">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.demonstrator.*"/>
-      </workingSet>
-      <description>The dynamic working sets for ${scope.project.label}</description>
-    </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/pom"
@@ -142,6 +165,13 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
+        location="${workspace.location}/controlcomponent"
+        remoteURI="https://github.com/BaSys-PC1/controlcomponent.git"
+        checkoutBranch="master">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
         location="${workspace.location}/platform"
         remoteURI="https://github.com/BaSys-PC1/platform.git"
         checkoutBranch="master">
@@ -151,6 +181,13 @@
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
         remoteURI="https://github.com/BaSys-PC1/demonstrator.git"
+        checkoutBranch="master">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/cluster40"
+        remoteURI="https://github.com/BaSys-PC1/cluster40.git"
         checkoutBranch="master">
       <description></description>
     </setupTask>
@@ -174,6 +211,9 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
+          rootFolder="${workspace.location}/controlcomponent/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
           rootFolder="${workspace.location}/platform/models"
           locateNestedProjects="true"/>
       <sourceLocator
@@ -181,6 +221,9 @@
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/osgi"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/webapp"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/configs"
@@ -286,72 +329,46 @@
   <stream name="develop"
       label="Develop">
     <setupTask
-        xsi:type="setup.workingsets:WorkingSetTask"
-        prefix="org.eclipse.core.git-">
-      <workingSet
-          name="BaSys Common">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.common.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Models">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.model.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Runtime">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.runtime.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys OSGi">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.osgi.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Demonstrator">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.demonstrator.*"/>
-      </workingSet>
-      <description>The dynamic working sets for ${scope.project.label}</description>
-    </setupTask>
-    <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/pom"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/pom.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/common"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/common.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/common.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/controlcomponent"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/controlcomponent.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/platform"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/platform.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/platform.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/demonstrator.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/eclipse-integration"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/eclipse-integration.git"/>
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/eclipse-integration.git"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
           rootFolder="${workspace.location}/eclipse-integration"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/models"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
@@ -363,6 +380,9 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
+          rootFolder="${workspace.location}/controlcomponent/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
           rootFolder="${workspace.location}/platform/models"
           locateNestedProjects="true"/>
       <sourceLocator
@@ -370,6 +390,9 @@
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/osgi"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/webapp"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/configs"
@@ -380,10 +403,14 @@
       <sourceLocator
           rootFolder="${workspace.location}/demonstrator/devices"
           locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/demonstrator/services"
+          locateNestedProjects="true"/>
       <description></description>
     </setupTask>
     <setupTask
-        xsi:type="setup.targlets:TargletTask">
+        xsi:type="setup.targlets:TargletTask"
+        activateTarget="false">
       <targlet
           name="${scope.project.label}"
           activeRepositoryList="${eclipse.target.platform}">
@@ -475,98 +502,88 @@
   <stream name="master"
       label="Master">
     <setupTask
-        xsi:type="setup.workingsets:WorkingSetTask"
-        prefix="org.eclipse.core.git-">
-      <workingSet
-          name="BaSys Pom">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.pom.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Common">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.common.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Models">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.model.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Runtime">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.runtime.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys OSGi">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.platform.osgi.*"/>
-      </workingSet>
-      <workingSet
-          name="BaSys Demonstrator">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern=".*\.basys.demonstrator.*"/>
-      </workingSet>
-      <description>The dynamic working sets for ${scope.project.label}</description>
-    </setupTask>
-    <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/pom"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/pom.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/common"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/common.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/common.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/controlcomponent"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/controlcomponent.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/platform"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/platform.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/platform.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/demonstrator.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/demonstrator.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/eclipse-integration"
-        remoteURI="ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/eclipse-integration.git"/>
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/eclipse-integration.git"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${workspace.location}"
+          rootFolder="${workspace.location}/eclipse-integration"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/models"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="maven:MavenImportTask"
         projectNameTemplate="">
       <sourceLocator
-          rootFolder="${workspace.location}"
-          locateNestedProjects="true">
-        <excludedPath>pom/provision/</excludedPath>
-        <excludedPath>pom/poms/</excludedPath>
-        <excludedPath>common/provision/</excludedPath>
-        <excludedPath>common/poms/</excludedPath>
-        <excludedPath>platform/provision/</excludedPath>
-        <excludedPath>platform/poms</excludedPath>
-        <excludedPath>demonstrator/provision/</excludedPath>
-        <excludedPath>demonstrator/poms/</excludedPath>
-      </sourceLocator>
+          rootFolder="${workspace.location}/pom"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/common/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/controlcomponent/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/models"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/runtime"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/osgi"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/webapp"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/demonstrator/configs"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/demonstrator/platform"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/demonstrator/devices"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/demonstrator/services"
+          locateNestedProjects="true"/>
+      <description></description>
     </setupTask>
     <setupTask
-        xsi:type="setup.targlets:TargletTask">
+        xsi:type="setup.targlets:TargletTask"
+        activateTarget="false">
       <targlet
           name="${scope.project.label}"
           activeRepositoryList="${eclipse.target.platform}">
