@@ -363,13 +363,13 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/common"
+        location="${workspace.location}/asset-administration-shell"
         remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/controlcomponent"
+        location="${workspace.location}/control-component"
         remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
       <description></description>
     </setupTask>
@@ -545,13 +545,13 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/common"
+        location="${workspace.location}/asset-administration-shell"
         remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/controlcomponent"
+        location="${workspace.location}/control-component"
         remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
       <description></description>
     </setupTask>
