@@ -117,7 +117,7 @@
           pattern=".*\.basys.aas.*"/>
     </workingSet>
     <workingSet
-        name="BaSys ControlComponent">
+        name="BaSys Control Component">
       <predicate
           xsi:type="predicates:NamePredicate"
           pattern=".*\.basys.controlcomponent.*"/>
@@ -410,7 +410,7 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/asset-aministration-shell/modules"
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/control-component/modules"
@@ -595,7 +595,7 @@
           rootFolder="${workspace.location}/control-component/modules"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/asset-aministration-shell/modules"
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
