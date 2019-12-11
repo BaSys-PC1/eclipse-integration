@@ -364,7 +364,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/common"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-aministration-shell.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -546,7 +546,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/common"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-aministration-shell.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
       <description></description>
     </setupTask>
     <setupTask
