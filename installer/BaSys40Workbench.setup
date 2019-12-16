@@ -53,7 +53,7 @@
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
       value=""
-      defaultValue="2019-09"
+      defaultValue="2019-12"
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup:PreferenceTask"
@@ -97,7 +97,7 @@
     <repository
         url="https://download.eclipse.org/ecoretools/updates/releases/3.3.2/"/>
     <repository
-        url="http://download.eclipse.org/acceleo/updates/releases/"/>
+        url="https://download.eclipse.org/acceleo/updates/releases/"/>
     <repository
         url="https://download.eclipse.org/mmt/qvto/updates/releases/latest/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
@@ -111,7 +111,13 @@
           pattern=".*\.basys.common.*"/>
     </workingSet>
     <workingSet
-        name="BaSys ControlComponent">
+        name="BaSys Asset Administration Shell">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.aas.*"/>
+    </workingSet>
+    <workingSet
+        name="BaSys Control Component">
       <predicate
           xsi:type="predicates:NamePredicate"
           pattern=".*\.basys.controlcomponent.*"/>
@@ -146,6 +152,12 @@
           xsi:type="predicates:NamePredicate"
           pattern=".*\.basys.demonstrator.*"/>
     </workingSet>
+    <workingSet
+        name="P4P Demonstrator">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern=".*\.basys.p4p.*"/>
+    </workingSet>
   </setupTask>
   <stream name="github"
       label="Github">
@@ -165,8 +177,15 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/controlcomponent"
-        remoteURI="https://github.com/BaSys-PC1/controlcomponent.git"
+        location="${workspace.location}/asset-administration-shell"
+        remoteURI="https://github.com/BaSys-PC1/aasset-administration-shell.git"
+        checkoutBranch="master">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/control-component"
+        remoteURI="https://github.com/BaSys-PC1/control-component.git"
         checkoutBranch="master">
       <description></description>
     </setupTask>
@@ -180,14 +199,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
-        remoteURI="https://github.com/BaSys-PC1/demonstrator.git"
-        checkoutBranch="master">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/cluster40"
-        remoteURI="https://github.com/BaSys-PC1/cluster40.git"
+        remoteURI="https://github.com/BaSys-PC1/p4p-demonstrator.git"
         checkoutBranch="master">
       <description></description>
     </setupTask>
@@ -198,6 +210,12 @@
         checkoutBranch="master"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/platform/models"
+          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/eclipse-integration"
           locateNestedProjects="true"/>
@@ -211,7 +229,10 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/controlcomponent/modules"
+          rootFolder="${workspace.location}/asset-aministration-shell/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/control-component/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
@@ -226,13 +247,13 @@
           rootFolder="${workspace.location}/platform/webapp"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/configs"
+          rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/devices"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <description></description>
     </setupTask>
@@ -342,8 +363,14 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/controlcomponent"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/controlcomponent.git">
+        location="${workspace.location}/asset-administration-shell"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/control-component"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -355,7 +382,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/demonstrator.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -365,10 +392,13 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${workspace.location}/eclipse-integration"
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/eclipse-integration"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
@@ -380,7 +410,10 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/controlcomponent/modules"
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/control-component/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
@@ -395,16 +428,13 @@
           rootFolder="${workspace.location}/platform/webapp"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/configs"
+          rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/devices"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/services"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <description></description>
     </setupTask>
@@ -515,8 +545,14 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/controlcomponent"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/controlcomponent.git">
+        location="${workspace.location}/asset-administration-shell"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        location="${workspace.location}/control-component"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -528,7 +564,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/demonstrator.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git">
       <description></description>
     </setupTask>
     <setupTask
@@ -543,6 +579,9 @@
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
           locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
+          locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="maven:MavenImportTask"
@@ -553,7 +592,10 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/controlcomponent/modules"
+          rootFolder="${workspace.location}/control-component/modules"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/platform/models"
@@ -568,16 +610,13 @@
           rootFolder="${workspace.location}/platform/webapp"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/configs"
+          rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/devices"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/demonstrator/services"
+          rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <description></description>
     </setupTask>
