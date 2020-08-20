@@ -3,13 +3,9 @@
 You need to have Git, Java, and Maven set up before installing the BaSys 4.2 workbench or just working with the code base. 
 
 #### Git ####
- - Download and install [git](https://git-scm.com/download)
- - Configure git with [your identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) and [your ssh key](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key)
- - Create an account on https://basys.dfki.dev/gitlab/users/sign_in
-	- We have naming conventions, so please use your mydfki username, e.g. dapo01, as username and register with your DFKI email address.
-	- Add you public ssh key to this account (i.e. do not navigate to gitlab.com as described in step 2): https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account
-	- As a student, inform your supervisor about the account creation. He/She will add you to the required GitLab groups.
-	
+ - Download and install [git](https://git-scm.com/download).
+ - Configure git with [your identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) and [your ssh key](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key).
+ - Once you have an account for our internal GitLab instance, [add you public ssh key to this account](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account) (i.e. do not navigate to gitlab.com as described in step 2 on the linked web page). 
 
 #### Java ####
  - The BaSys source code is compliant to Java 8. However, if you want to develop with the latest Eclipse IDE (2020-09), Java 11 is required.
@@ -17,7 +13,7 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
 
 #### Maven ####
  - Download [Maven as binary zip archive](https://maven.apache.org/download.cgi) and follow the [installation instructions](https://maven.apache.org/install.html).
- - Since we use our own maven repository for snapshot artifacts that are built with our CI chain, you have to tell maven the repo location. For this, create a directory `.m2` in your user folder and inside that folder create a file `settings.xml` with the following contents
+ - Since we use our own maven repository for snapshot artifacts that are built with our CI chain, you have to tell maven the repo location. For this, create a directory `.m2` in your user folder and inside that folder create a file `settings.xml` with the following contents:
 
 ```
 <?xml version="1.0"?>
@@ -42,7 +38,7 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
 
 # Install the BaSys 4.2 workbench including the BaSys 4.2 source code via Eclipse Installer
 
- 1. Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer)
+ 1. Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer).
  2. Execute the downloaded package, click on the menu button the the top right corner, and switch to the advanced mode. This requires the Eclipse Installer to get installed on the hard disk.
     
     <img src='/docs/installer/eclipse-installer-1.png?raw=true' width='50%' height='50%'>
