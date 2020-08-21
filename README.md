@@ -65,9 +65,17 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
 
     <img src='/docs/installer/eclipse-installer-6.png?raw=true' width='50%' height='50%'>
  
- 8. Click 'Finish' to start the installation. This will install a new Eclipse IDE, pull the BaSys 4.0 source code from GitHub, and import the contained projects into the Eclipse workspace.
+ 8. Click 'Finish' to start the installation. This will install a new Eclipse IDE.
 
     <img src='/docs/installer/eclipse-installer-7.png?raw=true' width='50%' height='50%'>
+    
+ 9. Wait for the installation to finish and click 'Finish' again.
+ 
+    <img src='/docs/installer/eclipse-installer-8.png?raw=true' width='50%' height='50%'>  
+ 
+ 10. The Eclipse IDE opens up and automatically starts an Eclipse Update Wizard that pull the git repos, imports the contained projects into the Eclipse workspace, and sorts them into working sets. Click 'Finish' again, when the wizard completed.
+
+    <img src='/docs/installer/eclipse-installer-9.png?raw=true' width='50%' height='50%'>  
     
 # Post-installation steps
 
