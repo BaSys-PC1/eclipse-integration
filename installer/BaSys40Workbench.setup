@@ -228,9 +228,6 @@
       <sourceLocator
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true">
-        <excludedPath>common.aas</excludedPath>
-        <excludedPath>common.mirrestclient</excludedPath>
-        <excludedPath>common.wmrestclient</excludedPath>
       </sourceLocator>
       <sourceLocator
           rootFolder="${workspace.location}/common/rest"
@@ -466,98 +463,6 @@
           rootFolder="${workspace.location}/p4p-demonstrator/controlcomponents"
           locateNestedProjects="true"/>
       <description></description>
-    </setupTask>
-  </stream>
-  <stream name="test">
-    <setupTask
-        xsi:type="setup.targlets:TargletTask"
-        activateTarget="false">
-      <targlet
-          name="${scope.project.label}"
-          activeRepositoryList="${eclipse.target.platform}">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${workspace.location}/basys.target</value>
-          </detail>
-          <detail
-              key="extraUnits">
-            <value>org.eclipse.equinox.executable.feature.group</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>true</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
-        <requirement
-            name="org.eclipse.sdk.feature.group"/>
-        <requirement
-            name="org.eclipse.emf.feature.group"
-            versionRange="2.12.0"/>
-        <requirement
-            name="org.eclipse.acceleo.sdk.feature.group"
-            versionRange="3.7.2"/>
-        <requirement
-            name="org.eclipse.m2m.qvt.oml.sdk.feature.group"
-            versionRange="3.7.0"/>
-        <requirement
-            name="*"/>
-        <repositoryList
-            name="Oxygen">
-          <repository
-              url="http://download.eclipse.org/releases/oxygen"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-          <repository
-              url="http://download.eclipse.org/acceleo/updates/releases/"/>
-        </repositoryList>
-        <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/releases/neon"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Mars">
-          <repository
-              url="http://download.eclipse.org/releases/mars"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Luna">
-          <repository
-              url="http://download.eclipse.org/releases/luna"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Kepler">
-          <repository
-              url="http://download.eclipse.org/releases/kepler"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Juno">
-          <repository
-              url="http://download.eclipse.org/releases/juno"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <dropinLocation
-            rootFolder="${workspace.location}/eclipse-integration/targetplatform/plugins"/>
-      </targlet>
     </setupTask>
   </stream>
   <logicalProjectContainer
