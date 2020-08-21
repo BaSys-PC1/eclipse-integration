@@ -81,5 +81,5 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
 # Post-installation steps
 
  1. Navigate to the newly created workspace folder ('Root install folder'/'Installation folder name'/ws) in a console window.
- 2. Run a `mvn clean install -DskipTests` command in the sub-folders `pom`, `common`, `asset-administration-shell`, `controlcomponent`, `platform`, and `p4p-demonstrator`.
+ 2. Run a `mvn clean install -DskipTests` command in the sub-folders `pom`, `common`, `asset-administration-shell`, `control-component`, `platform`, and `p4p-demonstrator`.
  3. In Eclipse, select all projects (`[Ctrl]+[A]`) and perform a Clean (via the respective Project menu item) and a Maven Update Project (`[ALT]+[F5]`).
