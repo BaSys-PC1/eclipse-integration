@@ -57,7 +57,7 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
     
     <img src='/docs/installer/eclipse-installer-4.png?raw=true' width='50%' height='50%'>
  
- 6. Select the added user project 'BaSys 4.0 Workbench' and click 'next'.
+ 6. Select the added user project 'BaSys 4.0 Workbench' and optionally select a stream. Then click 'next'. The Github master branch stream is publicly available and will pull the full source code while the two develop branch streams are only internally available. The P4P demonstrator stream will pull only the demonstrator-specific source code.
 
     <img src='/docs/installer/eclipse-installer-5.png?raw=true' width='50%' height='50%'>
  
@@ -72,10 +72,11 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
  9. Wait for the installation to finish and click 'Finish' again.
  
     <img src='/docs/installer/eclipse-installer-8.png?raw=true' width='50%' height='50%'>  
+    
+ 9. The Eclipse IDE opens up and automatically starts an Eclipse Update Wizard that pull the git repos, imports the contained projects into the Eclipse workspace, and sorts them into working sets. Click 'Finish' again, when the wizard completed.
  
- 10. The Eclipse IDE opens up and automatically starts an Eclipse Update Wizard that pull the git repos, imports the contained projects into the Eclipse workspace, and sorts them into working sets. Click 'Finish' again, when the wizard completed.
-
     <img src='/docs/installer/eclipse-installer-9.png?raw=true' width='50%' height='50%'>  
+
     
 # Post-installation steps
 
