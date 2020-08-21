@@ -53,7 +53,7 @@ You need to have Git, Java, and Maven set up before installing the BaSys 4.2 wor
  
  5. Copy the following URL into the 'Resource URIs' field and click 'OK'.
 
-    `https://raw.githubusercontent.com/BaSys-PC1/eclipse-integration/master/installer/BaSys40Workbench.setup`
+    `http://basys.dfki.dev/setup/BaSys40Workbench.setup`
     
     <img src='/docs/installer/eclipse-installer-4.png?raw=true' width='50%' height='50%'>
  
