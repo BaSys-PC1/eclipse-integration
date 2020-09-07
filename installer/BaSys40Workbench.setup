@@ -36,24 +36,42 @@
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="STARTUP MANUAL"
-      content="MAX_RECENT_WORKSPACES=5&#xD;&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xD;&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xD;&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=false&#xD;&#xA;eclipse.preferences.version=1"
       targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
       encoding="UTF-8">
     <description>Do not ask for workspace location</description>
+    <content>
+      MAX_RECENT_WORKSPACES=5
+      RECENT_WORKSPACES=${workspace.location|property}
+      RECENT_WORKSPACES_PROTOCOL=3
+      SHOW_WORKSPACE_SELECTION_DIALOG=false
+      eclipse.preferences.version=1
+    </content>
   </setupTask>
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="STARTUP MANUAL"
-      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart&quot;>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;group_libraries&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;false&quot; key=&quot;linkWithEditor&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;layout&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;rootMode&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;packageExplorer configured=&amp;quot;true&amp;quot; group_libraries=&amp;quot;1&amp;quot; layout=&amp;quot;2&amp;quot; linkWithEditor=&amp;quot;0&amp;quot; rootMode=&amp;quot;2&amp;quot; sortWorkingSets=&amp;quot;false&amp;quot; workingSetName=&amp;quot;&amp;quot;&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;workingSet editPageId=&amp;quot;org.eclipse.jdt.internal.ui.OthersWorkingSet&amp;quot; factoryID=&amp;quot;org.eclipse.ui.internal.WorkingSetFactory&amp;quot; id=&amp;quot;1382792884467_1&amp;quot; label=&amp;quot;Other Projects&amp;quot; name=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;activeWorkingSet workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;allWorkingSets workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/packageExplorer&amp;gt;&quot; key=&quot;memento&quot;/>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>&#xD;&#xA;"
       targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml"
       encoding="UTF-8">
     <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+    <content>
+      &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+      &lt;section name=&quot;Workbench&quot;>
+      	&lt;section name=&quot;org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart&quot;>
+      		&lt;item value=&quot;true&quot; key=&quot;group_libraries&quot;/>
+      		&lt;item value=&quot;false&quot; key=&quot;linkWithEditor&quot;/>
+      		&lt;item value=&quot;2&quot; key=&quot;layout&quot;/>
+      		&lt;item value=&quot;2&quot; key=&quot;rootMode&quot;/>
+      		&lt;item value=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;packageExplorer configured=&amp;quot;true&amp;quot; group_libraries=&amp;quot;1&amp;quot; layout=&amp;quot;2&amp;quot; linkWithEditor=&amp;quot;0&amp;quot; rootMode=&amp;quot;2&amp;quot; sortWorkingSets=&amp;quot;false&amp;quot; workingSetName=&amp;quot;&amp;quot;&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;workingSet editPageId=&amp;quot;org.eclipse.jdt.internal.ui.OthersWorkingSet&amp;quot; factoryID=&amp;quot;org.eclipse.ui.internal.WorkingSetFactory&amp;quot; id=&amp;quot;1382792884467_1&amp;quot; label=&amp;quot;Other Projects&amp;quot; name=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;activeWorkingSet workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;allWorkingSets workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/packageExplorer&amp;gt;&quot; key=&quot;memento&quot;/>
+      	&lt;/section>
+      &lt;/section>
+
+    </content>
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
       value=""
-      defaultValue="2019-12"
+      defaultValue="2020-09"
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup:PreferenceTask"
@@ -135,24 +153,6 @@
           pattern=".*\.basys.platform.runtime.*"/>
     </workingSet>
     <workingSet
-        name="BaSys OSGi">
-      <predicate
-          xsi:type="predicates:NamePredicate"
-          pattern=".*\.basys.platform.osgi.*"/>
-    </workingSet>
-    <workingSet
-        name="BaSys WebApp">
-      <predicate
-          xsi:type="predicates:NamePredicate"
-          pattern=".*\.basys.platform.webapp.*"/>
-    </workingSet>
-    <workingSet
-        name="BaSys Demonstrator">
-      <predicate
-          xsi:type="predicates:NamePredicate"
-          pattern=".*\.basys.demonstrator.*"/>
-    </workingSet>
-    <workingSet
         name="P4P Demonstrator">
       <predicate
           xsi:type="predicates:NamePredicate"
@@ -160,7 +160,7 @@
     </workingSet>
   </setupTask>
   <stream name="github"
-      label="Github">
+      label="Full sources (Github master branch) ">
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/pom"
@@ -198,7 +198,7 @@
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/demonstrator"
+        location="${workspace.location}/p4p-demonstrator"
         remoteURI="https://github.com/BaSys-PC1/p4p-demonstrator.git"
         checkoutBranch="master">
       <description></description>
@@ -227,9 +227,13 @@
           rootFolder="${workspace.location}/pom"/>
       <sourceLocator
           rootFolder="${workspace.location}/common/modules"
+          locateNestedProjects="true">
+      </sourceLocator>
+      <sourceLocator
+          rootFolder="${workspace.location}/common/rest"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/asset-aministration-shell/modules"
+          rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/control-component/modules"
@@ -241,19 +245,13 @@
           rootFolder="${workspace.location}/platform/runtime"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/platform/osgi"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/webapp"
-          locateNestedProjects="true"/>
-      <sourceLocator
           rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/p4p-demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/controlcomponents"
           locateNestedProjects="true"/>
       <description></description>
     </setupTask>
@@ -348,47 +346,54 @@
     </setupTask>
   </stream>
   <stream name="develop"
-      label="Develop">
+      label="Full sources (internal develop branch)">
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/pom"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/pom.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/pom.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/common"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/common.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/common.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/asset-administration-shell"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/control-component"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/platform"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/platform.git">
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/platform.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git">
+        location="${workspace.location}/p4p-demonstrator"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git"
+        checkoutBranch="develop">
       <description></description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
         location="${workspace.location}/eclipse-integration"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/eclipse-integration.git"/>
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/eclipse-integration.git"
+        checkoutBranch="develop"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
@@ -410,6 +415,9 @@
           rootFolder="${workspace.location}/common/modules"
           locateNestedProjects="true"/>
       <sourceLocator
+          rootFolder="${workspace.location}/common/rest"
+          locateNestedProjects="true"/>
+      <sourceLocator
           rootFolder="${workspace.location}/asset-administration-shell/modules"
           locateNestedProjects="true"/>
       <sourceLocator
@@ -422,193 +430,29 @@
           rootFolder="${workspace.location}/platform/runtime"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/platform/osgi"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/webapp"
-          locateNestedProjects="true"/>
-      <sourceLocator
           rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/p4p-demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/controlcomponents"
           locateNestedProjects="true"/>
       <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.targlets:TargletTask"
-        activateTarget="false">
-      <targlet
-          name="${scope.project.label}"
-          activeRepositoryList="${eclipse.target.platform}">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${workspace.location}/basys.target</value>
-          </detail>
-          <detail
-              key="extraUnits">
-            <value>org.eclipse.equinox.executable.feature.group</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>true</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
-        <requirement
-            name="org.eclipse.sdk.feature.group"/>
-        <requirement
-            name="org.eclipse.emf.feature.group"
-            versionRange="2.12.0"/>
-        <requirement
-            name="org.eclipse.acceleo.sdk.feature.group"
-            versionRange="3.7.2"/>
-        <requirement
-            name="org.eclipse.m2m.qvt.oml.sdk.feature.group"
-            versionRange="3.7.0"/>
-        <requirement
-            name="*"/>
-        <repositoryList
-            name="Oxygen">
-          <repository
-              url="http://download.eclipse.org/releases/oxygen"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-          <repository
-              url="http://download.eclipse.org/acceleo/updates/releases/"/>
-        </repositoryList>
-        <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/releases/neon"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Mars">
-          <repository
-              url="http://download.eclipse.org/releases/mars"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Luna">
-          <repository
-              url="http://download.eclipse.org/releases/luna"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Kepler">
-          <repository
-              url="http://download.eclipse.org/releases/kepler"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Juno">
-          <repository
-              url="http://download.eclipse.org/releases/juno"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <dropinLocation
-            rootFolder="${workspace.location}/eclipse-integration/targetplatform/plugins"/>
-      </targlet>
     </setupTask>
   </stream>
-  <stream name="master"
-      label="Master">
+  <stream name="p4p"
+      label="P4P Demonstrator sources (internal develop branch)">
     <setupTask
         xsi:type="git:GitCloneTask"
-        location="${workspace.location}/pom"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/pom.git">
+        location="${workspace.location}/p4p-demonstrator"
+        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git"
+        checkoutBranch="develop">
       <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/common"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/common.git">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/asset-administration-shell"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/asset-administration-shell.git">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/control-component"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/control-component.git">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/platform"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/platform.git">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/demonstrator"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/p4p-demonstrator.git">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        location="${workspace.location}/eclipse-integration"
-        remoteURI="ssh://git@basys.dfki.dev:10022/i40/basys/eclipse-integration.git"/>
-    <setupTask
-        xsi:type="projects:ProjectsImportTask">
-      <sourceLocator
-          rootFolder="${workspace.location}/eclipse-integration"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/models"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/asset-administration-shell/modules"
-          locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="maven:MavenImportTask"
         projectNameTemplate="">
-      <sourceLocator
-          rootFolder="${workspace.location}/pom"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/common/modules"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/control-component/modules"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/asset-administration-shell/modules"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/models"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/runtime"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/osgi"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/platform/webapp"
-          locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${workspace.location}/p4p-demonstrator/configs"
           locateNestedProjects="true"/>
@@ -616,99 +460,9 @@
           rootFolder="${workspace.location}/p4p-demonstrator/platform"
           locateNestedProjects="true"/>
       <sourceLocator
-          rootFolder="${workspace.location}/p4p-demonstrator/platform"
+          rootFolder="${workspace.location}/p4p-demonstrator/controlcomponents"
           locateNestedProjects="true"/>
       <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.targlets:TargletTask"
-        activateTarget="false">
-      <targlet
-          name="${scope.project.label}"
-          activeRepositoryList="${eclipse.target.platform}">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${workspace.location}/basys.target</value>
-          </detail>
-          <detail
-              key="extraUnits">
-            <value>org.eclipse.equinox.executable.feature.group</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>true</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
-        <requirement
-            name="org.eclipse.sdk.feature.group"/>
-        <requirement
-            name="org.eclipse.emf.feature.group"
-            versionRange="2.12.0"/>
-        <requirement
-            name="org.eclipse.acceleo.sdk.feature.group"
-            versionRange="3.7.2"/>
-        <requirement
-            name="org.eclipse.m2m.qvt.oml.sdk.feature.group"
-            versionRange="3.7.0"/>
-        <requirement
-            name="*"/>
-        <repositoryList
-            name="Oxygen">
-          <repository
-              url="http://download.eclipse.org/releases/oxygen"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-          <repository
-              url="http://download.eclipse.org/acceleo/updates/releases/"/>
-        </repositoryList>
-        <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/releases/neon"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Mars">
-          <repository
-              url="http://download.eclipse.org/releases/mars"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Luna">
-          <repository
-              url="http://download.eclipse.org/releases/luna"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Kepler">
-          <repository
-              url="http://download.eclipse.org/releases/kepler"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <repositoryList
-            name="Juno">
-          <repository
-              url="http://download.eclipse.org/releases/juno"/>
-          <repository
-              url="http://download.eclipse.org/cbi/updates/license"/>
-        </repositoryList>
-        <dropinLocation
-            rootFolder="${workspace.location}/eclipse-integration/targetplatform/plugins"/>
-      </targlet>
     </setupTask>
   </stream>
   <logicalProjectContainer
